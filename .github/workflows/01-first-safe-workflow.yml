@@ -1,4 +1,4 @@
-name: First Safe CI/CD Workflow
+name: 01 - First Safe CI/CD Workflow
 
 on:
   workflow_dispatch:
