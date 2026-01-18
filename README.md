@@ -34,3 +34,32 @@ The focus is on building safe, observable automation (no cloud deployments yet).
 ### Notes
 - Security scans are currently configured as non-blocking while learning.
 - Future work will include stricter enforcement and (later) safe AWS integration using least-privilege IAM.
+
+
+
+## Security Process
+
+This repository follows a simple, security-first CI/CD process inspired by real-world SOC and DevSecOps practices.
+
+### 1. Change Introduction
+- Any change to the repository is treated as a potential security event.
+- Direct commits to the `main` branch are restricted to enforce change control.
+
+### 2. Automated Security Checks
+- **Secret scanning (Gitleaks)** runs automatically on relevant changes to detect exposed credentials early.
+- **Dependency vulnerability scanning (Trivy)** is run manually on demand to assess risk without creating unnecessary pipeline noise.
+
+### 3. Review and Assessment
+- CI/CD workflow results are reviewed through GitHub Actions logs.
+- Findings are assessed based on severity, context, and exploitability rather than tool output alone.
+
+### 4. Documentation
+- Security findings and reviews are documented using a dedicated issue template.
+- Each review records evidence, assessment, and outcome for audit and learning purposes.
+
+### 5. Resolution and Closure
+- If no action is required, findings are documented and closed.
+- If remediation is needed, fixes are applied via pull request and revalidated through CI/CD.
+
+This approach demonstrates a balanced, risk-based CI/CD security model focused on prevention, visibility, and traceability.
+
