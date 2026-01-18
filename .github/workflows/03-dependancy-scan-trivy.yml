@@ -2,8 +2,7 @@ name: 03 - Dependancy Vulnerability Scan (Trivy)
 
 on:
   workflow_dispatch:
-  push:
-    branches: ["main"]
+ 
 
 jobs:
   dependancy-scan:
